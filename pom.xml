@@ -15,6 +15,7 @@
 		<salestaxes.version>1.0</salestaxes.version>
 		<junit.version>4.12</junit.version>
 		<spring.version>5.0.1.RELEASE</spring.version>
+		<tomcat.version>9.0.8</tomcat.version>
 	</properties>
 	
 	<modules>

@@ -43,19 +43,11 @@
 			<version>${spring.version}</version>
 		</dependency>
 		
-		<!-- JUnit lib -->
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>${junit.version}</version>
-			<scope>test</scope>
-		</dependency>
-		
 		<!-- Tomcat lib -->
         <dependency>
             <groupId>org.apache.tomcat</groupId>
             <artifactId>tomcat-servlet-api</artifactId>
-            <version>9.0.8</version>
+            <version>${tomcat.version}</version>
             <scope>provided</scope>
         </dependency>
         
