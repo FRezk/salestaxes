@@ -39,19 +39,20 @@ public class BeansConfig {
 			Double total = new Double(0);
 			response.setProducts(request);
 			for(SalesTaxesRequest re : response.getProducts()) {
-				Double tax = 0.00;
+				Double taxApplied = new Double(0);
+				Double originalPrice = re.getPrice();
 				if(NonTaxableProductEnum.get(re.getIdProductType()) == null) {
-					tax += Round.round(re.getPrice() * TaxValue.BASIC.getTax() * re.getQuantity());
+					taxApplied += re.getPrice() * TaxValue.BASIC.getTax() * re.getQuantity();
 				}
 				if(re.getImported()) {
-					tax += Round.round(re.getPrice() * TaxValue.IMPORTED.getTax() * re.getQuantity()); 
+					taxApplied += re.getPrice() * TaxValue.IMPORTED.getTax() * re.getQuantity(); 
 				}
-				re.setPrice(Round.round( re.getPrice() * re.getQuantity() + tax));
-				total += Round.round(re.getPrice());
-				salesTaxes += tax;
+				re.setPrice(Round.roundUp(re.getPrice() * re.getQuantity() + taxApplied));
+				total += re.getPrice();
+				salesTaxes += Round.round(re.getPrice() - originalPrice);
 			}
-			response.setSalesTaxes(salesTaxes);
-			response.setTotal(total);
+			response.setSalesTaxes(Round.round(salesTaxes));
+			response.setTotal(Round.round(total));
 			return response;
 		};
 		return calculationEngine;
