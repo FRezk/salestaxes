@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.google.gson.Gson;
+
 import br.com.rezk.salestaxes.service.SalesTaxesService;
 import br.com.rezk.salestaxes.service.request.SalesTaxesRequest;
 
@@ -18,9 +20,12 @@ public class SalesTaxesResource {
 	@Autowired
 	private SalesTaxesService salesTaxesService;
 	
+	@Autowired
+	private Gson gson;
+	
 	@RequestMapping(method=RequestMethod.POST, headers="Content-Type=application/json", produces=MediaType.APPLICATION_JSON_VALUE, value="/calculate")
 	public String calculateSalesTaxes(@RequestBody List<SalesTaxesRequest> request) {
-		return salesTaxesService.calculateSalesTaxes(request);
+		return gson.toJson(salesTaxesService.calculateSalesTaxes(request));
 	}
 
 }
