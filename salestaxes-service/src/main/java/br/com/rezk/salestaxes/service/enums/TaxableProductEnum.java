@@ -1,20 +1,19 @@
 package br.com.rezk.salestaxes.service.enums;
 
-public enum NonTaxableProductEnum {
-	BOOK("Book", 1l),
-	FOOD("Box of chocolates", 2l),
-	MEDICAL("Medical", 3l);
+public enum TaxableProductEnum {
+	MUSIC("Music CD", 4l),
+	PERFUME("Bottle of Perfume", 5l);
 	
 	private String name;
 	private Long id;
 	
-	NonTaxableProductEnum(String name, Long id) {
+	TaxableProductEnum(String name, Long id) {
 		this.name = name;
 		this.id = id;
 	}
 	
-	public static NonTaxableProductEnum get(Long id) {
-		for(NonTaxableProductEnum retorno : NonTaxableProductEnum.values()) {
+	public static TaxableProductEnum get(Long id) {
+		for(TaxableProductEnum retorno : TaxableProductEnum.values()) {
 			if(retorno.id == id) {
 				return retorno;
 			}
@@ -37,5 +36,5 @@ public enum NonTaxableProductEnum {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 }

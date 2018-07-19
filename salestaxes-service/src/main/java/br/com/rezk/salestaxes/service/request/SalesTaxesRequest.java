@@ -5,7 +5,17 @@ public class SalesTaxesRequest {
 	private Long quantity;
 	private Boolean imported;
 	private Long idProductType;
+	private String nameProductType;
 	private Double price;
+	
+	public SalesTaxesRequest() {}
+	
+	public SalesTaxesRequest(Long quantity, Boolean imported, Long idProductType, Double price) {
+		this.quantity = quantity;
+		this.imported = imported;
+		this.idProductType = idProductType;
+		this.price = price;
+	}
 	
 	public Long getQuantity() {
 		return quantity;
@@ -19,6 +29,14 @@ public class SalesTaxesRequest {
 	public void setImported(Boolean imported) {
 		this.imported = imported;
 	}
+	public String getNameProductType() {
+		return nameProductType;
+	}
+
+	public void setNameProductType(String nameProductType) {
+		this.nameProductType = nameProductType;
+	}
+
 	public Double getPrice() {
 		return price;
 	}

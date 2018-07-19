@@ -12,6 +12,7 @@ import br.com.rezk.salestaxes.service.SalesTaxesService;
 import br.com.rezk.salestaxes.service.engine.CalculationEngine;
 import br.com.rezk.salestaxes.service.enums.NonTaxableProductEnum;
 import br.com.rezk.salestaxes.service.enums.TaxValue;
+import br.com.rezk.salestaxes.service.enums.TaxableProductEnum;
 import br.com.rezk.salestaxes.service.provider.SalesTaxesServiceProvider;
 import br.com.rezk.salestaxes.service.request.SalesTaxesRequest;
 import br.com.rezk.salestaxes.service.response.SalesTaxesResponse;
@@ -43,13 +44,20 @@ public class BeansConfig {
 				Double originalPrice = re.getPrice();
 				if(NonTaxableProductEnum.get(re.getIdProductType()) == null) {
 					taxApplied += re.getPrice() * TaxValue.BASIC.getTax() * re.getQuantity();
+					re.setNameProductType(TaxableProductEnum.get(re.getIdProductType()).getName());
+					re.setIdProductType(null);
 				}
 				if(re.getImported()) {
 					taxApplied += re.getPrice() * TaxValue.IMPORTED.getTax() * re.getQuantity(); 
 				}
+				if(re.getIdProductType() != null) {
+					re.setNameProductType(NonTaxableProductEnum.get(re.getIdProductType()).getName());
+					re.setIdProductType(null);
+				}
 				re.setPrice(Round.roundUp(re.getPrice() * re.getQuantity() + taxApplied));
 				total += re.getPrice();
 				salesTaxes += Round.round(re.getPrice() - originalPrice);
+				
 			}
 			response.setSalesTaxes(Round.round(salesTaxes));
 			response.setTotal(Round.round(total));

@@ -1,0 +1,97 @@
+{
+	"info": {
+		"name": "SalesTaxes",
+		"_postman_id": "c1f896e3-c4bf-155c-b98a-877b1b67d9d9",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Case 1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n\t{\n\t\t\"quantity\": 1,\n\t\t\"imported\": false,\n\t\t\"idProductType\": 1,\n\t\t\"price\": 12.49\n\t},\n\t{\n\t\t\"quantity\": 1,\n\t\t\"imported\": false,\n\t\t\"idProductType\": 4,\n\t\t\"price\": 14.99\n\t},\n\t{\n\t\t\"quantity\": 1,\n\t\t\"imported\": false,\n\t\t\"idProductType\": 2,\n\t\t\"price\": 0.85\n\t}\n]\n\n\n\n"
+				},
+				"url": {
+					"raw": "localhost:8080/salestaxes-api/calculate",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"salestaxes-api",
+						"calculate"
+					]
+				},
+				"description": "Test Case 1"
+			},
+			"response": []
+		},
+		{
+			"name": "Case 2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n\t{\n\t\t\"quantity\": 1,\n\t\t\"imported\": true,\n\t\t\"idProductType\": 1,\n\t\t\"price\": 10.00\n\t},\n\t{\n\t\t\"quantity\": 1,\n\t\t\"imported\": true,\n\t\t\"idProductType\": 5,\n\t\t\"price\": 47.50\n\t}\n]"
+				},
+				"url": {
+					"raw": "localhost:8080/salestaxes-api/calculate",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"salestaxes-api",
+						"calculate"
+					]
+				},
+				"description": "Test Case 2"
+			},
+			"response": []
+		},
+		{
+			"name": "Case 3",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n\t{\n\t\t\"quantity\": 1,\n\t\t\"imported\": true,\n\t\t\"idProductType\": 5,\n\t\t\"price\": 27.99\n\t},\n\t{\n\t\t\"quantity\": 1,\n\t\t\"imported\": false,\n\t\t\"idProductType\": 5,\n\t\t\"price\": 18.99\n\t},\n\t{\n\t\t\"quantity\": 1,\n\t\t\"imported\": false,\n\t\t\"idProductType\": 3,\n\t\t\"price\": 9.75\n\t},\n\t{\n\t\t\"quantity\": 1,\n\t\t\"imported\": true,\n\t\t\"idProductType\": 2,\n\t\t\"price\": 11.25\n\t}\n]"
+				},
+				"url": {
+					"raw": "localhost:8080/salestaxes-api/calculate",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"salestaxes-api",
+						"calculate"
+					]
+				},
+				"description": "Test Case 3"
+			},
+			"response": []
+		}
+	]
+}
