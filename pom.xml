@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<name>salestaxes</name>
-	<description>Sales Taxes parent project</description>
+	<description>Sales Taxes parent project</description> 
 
 	<groupId>br.com.rezk</groupId>
 	<artifactId>salestaxes</artifactId>
