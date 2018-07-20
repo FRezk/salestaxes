@@ -11,12 +11,17 @@
 	<packaging>pom</packaging>
 
 	<properties>
+				<!-- Dependencies versions -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<salestaxes.version>1.0</salestaxes.version>
 		<junit.version>4.12</junit.version>
 		<spring.version>5.0.1.RELEASE</spring.version>
 		<tomcat.version>9.0.8</tomcat.version>
 		<gson.version>2.8.5</gson.version>
+		
+				<!-- Compiler version -->
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.source>1.8</maven.compiler.source>
 	</properties>
 	
 	<modules>
